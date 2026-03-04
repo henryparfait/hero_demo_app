@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'gallery_item.dart';
 
-/// ----------------------------------------------------------
-/// DetailScreen – the DESTINATION page for the Hero animation
-/// ----------------------------------------------------------
-/// Shows the selected photo full-width with its description.
-/// The image is again wrapped in a [Hero] with the SAME tag
-/// so Flutter knows which widgets to animate between.
-/// ----------------------------------------------------------
 class DetailScreen extends StatelessWidget {
   final GalleryItem item;
   const DetailScreen({super.key, required this.item});
@@ -26,18 +19,9 @@ class DetailScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ─────────────────────────────────────────────
-            // HERO WIDGET (destination)
-            // Same three properties as the source Hero:
-            //   tag                        → must match
-            //   flightShuttleBuilder       → smooth clipping
-            //   transitionOnUserGestures   → swipe-back support
-            // ─────────────────────────────────────────────
+            
             Hero(
-              // ── Property 1: tag (MUST match source) ───
-              tag: item.id,
-
-              // ── Property 2: flightShuttleBuilder ──────
+              tag: item.id, 
               flightShuttleBuilder: (
                 flightContext,
                 animation,
@@ -58,7 +42,6 @@ class DetailScreen extends StatelessWidget {
                 );
               },
 
-              // ── Property 3: transitionOnUserGestures ──
               transitionOnUserGestures: true,
 
               child: AspectRatio(
@@ -85,7 +68,6 @@ class DetailScreen extends StatelessWidget {
               ),
             ),
 
-            // ── Photo details ─────────────────────────────
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
@@ -107,7 +89,6 @@ class DetailScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
 
-                  // Info chip showing the Hero tag value
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,

@@ -1,13 +1,9 @@
-/// A simple model representing one gallery photo.
-///
-/// Each item carries a unique [id] that will be used as the Hero [tag],
-/// a network image [url], a [title], and a short [description].
 class GalleryItem {
-  final String id;        // Used as the Hero tag
+  final String id;        
   final String imageUrl;  // Network image URL
   final String title;
   final String description;
-  final int color;        // Fallback colour (ARGB int)
+  final int color;        
 
   const GalleryItem({
     required this.id,
